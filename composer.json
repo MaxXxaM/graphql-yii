@@ -1,0 +1,28 @@
+{
+    "name": "maxxxam/graphql-yii",
+    "type": "library",
+    "description": "GraphQL, yii2 lib",
+    "keywords": ["GraphQL","yii2"],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxim Belkanov",
+            "email": "maxxxam-me@yandex.ru"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "illuminate/support": "5.2.*",
+        "webonyx/graphql-php": "~0.5"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "files": [
+            "lib/GraphQL.php"
+        ]
+    }
+
+}
