@@ -20,9 +20,8 @@
 
     },
     "autoload": {
-        "files": [
-            "lib/GraphQL.php"
-        ]
+        "psr-4": {
+            "GraphQLYii\\": "lib/"
+        }
     }
-
 }
