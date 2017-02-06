@@ -27,7 +27,6 @@ class GraphQL extends Component{
 
     public $subscriptionPath = '';
 
-
     public $mutations = [];
 
     public $queries = [];
