@@ -15,9 +15,26 @@ use yii\base\Exception;
 
 class GraphQL extends Component{
 
+    public $namespace;
+
+    public $graphqlDir;
+
+    public $typesPath = '';
+
+    public $queriesPath = '';
+
+    public $mutationsPath = '';
+
+    public $subscriptionPath = '';
+
+
     public $mutations = [];
+
     public $queries = [];
+
     public $types = [];
+
+
     public $default_schema;
 
     protected $schema;
@@ -54,12 +71,16 @@ class GraphQL extends Component{
             return $this->schema;
         }
 
-        // Собираем все типы
+        /** Собираем объекты из конфиг и из директорий */
+        $this->types = array_unique( array_merge($this->types, $this->getListFiles($this->graphqlDir, $this->typesPath) ));
+        $this->queries = array_unique( array_merge($this->queries, $this->getListFiles($this->graphqlDir, $this->queriesPath) ));
+        $this->mutations = array_unique( array_merge($this->mutations, $this->getListFiles($this->graphqlDir, $this->mutationsPath) ));
+
+        /** Собираем все типы */
         foreach($this->types as $name => $type)
         {
             $this->type($name);
         }
-
 
         $queryType = $this->buildTypeFromFields($this->queries, [
             'name' => 'Query'
@@ -68,12 +89,68 @@ class GraphQL extends Component{
         $mutationType = $this->buildTypeFromFields($this->mutations, [
             'name' => 'Mutation'
         ]);
-        
+
         return new Schema([
             'query' => $queryType,
             'mutation' => $mutationType
         ]);
     }
+
+    private function getListFiles($basepath, $subPath = ''){
+        $files = [];
+        $subNamespace = str_replace('/', '\\', $subPath);
+        $path = $basepath . $subPath;
+        if ($path !== ''){
+            if (file_exists($path)) {
+                $fp = opendir($path);
+                while ($cvFile = readdir($fp)) {
+                    $fileName = $path . '/' . $cvFile;
+                    if (is_file($fileName)) {
+                        if (preg_match('/(.*)\.php/', $cvFile, $matches)) {
+                            $files[$matches[1]] = $this->namespace . $subNamespace . '\\' . $matches[1];
+                        }
+                    } elseif (!in_array($cvFile, ['.', '..'], true) && is_dir($fileName)) {
+                        $files = array_merge($files, $this->getListFiles($basepath, $subPath . '/' . $cvFile));
+                    }
+                }
+                closedir($fp);
+            }
+        }
+        return $files;
+    }
+
+/*    private function getListFilesSortByFolder($basepath, $subPath = '', $nest = 0){
+        $files = [];
+        $subNamespace = str_replace('/', '\\', $subPath);
+        $path = $basepath . $subPath;
+
+        $objectName = '';
+        foreach (array_reverse(explode('/', $subPath)) as $component){
+            if ($component !== ''){
+                $objectName .= ucfirst($component);
+            }
+        }
+
+        if ($nest > 0) $nest++;
+
+        if ($path !== ''){
+            if (file_exists($path)) {
+                $fp = opendir($path);
+                while ($cvFile = readdir($fp)) {
+                    $fileName = $path . '/' . $cvFile;
+                    if (is_file($fileName)) {
+                        if (preg_match('/(.*)\.php/', $cvFile, $matches)) {
+                            $files[$objectName][] = $this->namespace . $subNamespace . '\\' . $matches[1];
+                        }
+                    } elseif (!in_array($cvFile, ['.', '..'], true) && is_dir($fileName)) {
+                        $files = array_merge($files, $this->getListFilesSortByFolder($basepath, $subPath . '/' . $cvFile, $nest));
+                    }
+                }
+                closedir($fp);
+            }
+        }
+        return $files;
+    }*/
     
     protected function buildTypeFromFields($fields, $opts = [])
     {
