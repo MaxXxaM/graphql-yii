@@ -1,2 +1,4 @@
 /vendor
-.idea
+*.log
+composer.lock
+/*_backup/

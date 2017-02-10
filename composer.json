@@ -12,16 +12,21 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "illuminate/support": "5.2.*",
-        "webonyx/graphql-php": "0.7.*"
+        "php": ">=5.5.9",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
+        "webonyx/graphql-php": "~0.7.0"
     },
     "require-dev": {
 
     },
     "autoload": {
         "psr-4": {
-            "GraphQLYii\\": "lib/"
+            "GraphQLYii\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
     }
 }

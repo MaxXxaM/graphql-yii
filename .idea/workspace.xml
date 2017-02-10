@@ -2,8 +2,80 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="291dcd11-a6ed-4921-a6a3-ee0126ce8014" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/advanced.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/upgrade.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Console/GeneratorCommand.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Console/MutationMakeCommand.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Console/PublishCommand.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Console/QueryMakeCommand.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Console/TypeMakeCommand.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Console/stubs/mutation.stub" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Console/stubs/query.stub" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Console/stubs/type.stub" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Error/ValidationError.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Events/SchemaAdded.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Events/TypeAdded.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exception/SchemaNotFound.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Exception/TypeNotFound.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GraphQL.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GraphQLController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ServiceProvider.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Support/Facades/GraphQL.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Support/Field.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Support/InputObjectType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Support/InterfaceType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Support/Mutation.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Support/Query.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Support/Traits/ShouldValidate.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Support/Type.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/View/GraphiQLComposer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/views/graphiql.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/ConfigTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/EndpointTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/FieldTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/GraphQLQueryTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/GraphQLTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/GraphiQLTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/InterfaceTypeTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/MutationTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/CustomExampleType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/ErrorFormatter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/ExampleField.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/ExampleInterfaceType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/ExampleType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/ExampleValidationField.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/ExamplesContextQuery.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/ExamplesQuery.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/ExamplesRootQuery.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/UpdateExampleMutation.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/data.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Objects/queries.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/QueryTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/TypeTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/fixture/app/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/fixture/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/logs/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CHANGES" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/VERSION" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Error/ValidationError.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/GraphQL.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/GraphQLController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Support/Facades/GraphQL.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Support/Field.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Support/InterfaceType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Support/Mutation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Support/Query.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Support/Type.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/phpunit.xml.dist" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/GraphQL.php" afterPath="$PROJECT_DIR$/lib/GraphQL.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/TestCase.php" afterPath="$PROJECT_DIR$/tests/TestCase.php" />
     </list>
     <ignored path="graphql-yii.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,12 +96,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GraphQL.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/GraphQL.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="108" column="144" lean-forward="false" selection-start-line="108" selection-start-column="144" selection-end-line="108" selection-end-column="144" />
-              <folding />
+      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="306">
+                <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+                <folding>
+                  <marker date="1486738615628" expanded="true" signature="525:573" ph="{...}" />
+                  <marker date="1486738615628" expanded="true" signature="539:571" ph="{&quot;maxxxam/graphql&quot;: &quot;~0.2&quot;...}" />
+                  <marker date="1486738615628" expanded="true" signature="10664:10904" ph="{...}" />
+                  <marker date="1486738615628" expanded="true" signature="10675:10705" ph="{&quot;updateUserEmail&quot;: null...}" />
+                  <marker date="1486738615628" expanded="true" signature="10718:10902" ph="[...]" />
+                  <marker date="1486738615628" expanded="true" signature="10722:10899" ph="{&quot;message&quot;: &quot;validation&quot;...}" />
+                  <marker date="1486738615628" expanded="true" signature="10768:10820" ph="[...]" />
+                  <marker date="1486738615628" expanded="true" signature="10774:10815" ph="{&quot;line&quot;: 1...}" />
+                  <marker date="1486738615628" expanded="true" signature="10839:10895" ph="{...}" />
+                  <marker date="1486738615628" expanded="true" signature="10854:10890" ph="[...]" />
+                </folding>
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -46,6 +132,7 @@
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/lib/GraphQL.php" />
+        <option value="$PROJECT_DIR$/Readme.md" />
       </list>
     </option>
   </component>
@@ -80,7 +167,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -103,13 +190,13 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="docs" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -131,18 +218,20 @@
       <workItem from="1486388305698" duration="2422000" />
       <workItem from="1486397639957" duration="90000" />
       <workItem from="1486397749817" duration="27000" />
-      <workItem from="1486460904636" duration="7000" />
+      <workItem from="1486460904636" duration="664000" />
+      <workItem from="1486461715974" duration="36000" />
+      <workItem from="1486738491361" duration="125000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2546000" />
+    <option name="totallyTimeSpent" value="3364000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1007" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2673426" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27374598" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -225,9 +314,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/GraphQL.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="108" column="144" lean-forward="false" selection-start-line="108" selection-start-column="144" selection-end-line="108" selection-end-column="144" />
+        <state relative-caret-position="450">
+          <caret line="106" column="45" lean-forward="true" selection-start-line="106" selection-start-column="45" selection-end-line="106" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ConfigTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/advanced.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding>
+              <marker date="1485895528000" expanded="false" signature="3388:3513" ph="..." />
+              <marker date="1485895528000" expanded="true" signature="3549:4394" ph="{...}" />
+              <marker date="1485895528000" expanded="true" signature="3559:3583" ph=" @var array ..." />
+              <marker date="1485895528000" expanded="true" signature="3615:3681" ph="..." />
+              <marker date="1485895528000" expanded="true" signature="3692:3719" ph=" @return array ..." />
+              <marker date="1485895528000" expanded="true" signature="3750:4392" ph="{...}" />
+              <marker date="1485895528000" expanded="true" signature="3773:4384" ph="..." />
+              <marker date="1485895528000" expanded="true" signature="3797:3923" ph="..." />
+              <marker date="1485895528000" expanded="true" signature="3950:4073" ph="..." />
+              <marker date="1485895528000" expanded="true" signature="4102:4220" ph="..." />
+              <marker date="1485895528000" expanded="true" signature="4247:4374" ph="..." />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="306">
+            <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+            <folding>
+              <marker date="1486738615628" expanded="true" signature="525:573" ph="{...}" />
+              <marker date="1486738615628" expanded="true" signature="539:571" ph="{&quot;maxxxam/graphql&quot;: &quot;~0.2&quot;...}" />
+              <marker date="1486738615628" expanded="true" signature="10664:10904" ph="{...}" />
+              <marker date="1486738615628" expanded="true" signature="10675:10705" ph="{&quot;updateUserEmail&quot;: null...}" />
+              <marker date="1486738615628" expanded="true" signature="10718:10902" ph="[...]" />
+              <marker date="1486738615628" expanded="true" signature="10722:10899" ph="{&quot;message&quot;: &quot;validation&quot;...}" />
+              <marker date="1486738615628" expanded="true" signature="10768:10820" ph="[...]" />
+              <marker date="1486738615628" expanded="true" signature="10774:10815" ph="{&quot;line&quot;: 1...}" />
+              <marker date="1486738615628" expanded="true" signature="10839:10895" ph="{...}" />
+              <marker date="1486738615628" expanded="true" signature="10854:10890" ph="[...]" />
+            </folding>
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
