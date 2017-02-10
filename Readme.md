@@ -1,6 +1,6 @@
 # Yii2 GraphQL
 
-Данное расширение позволяет реализовать GraphQL API в framework Yii2. Данное расширение основано на следующем [расширении](https://github.com/webonyx/graphql-php). Более подробная информация о GraphQL - [GraphQL Introduction](http://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html).
+Данное расширение позволяет реализовать GraphQL API в Yii2. Расширение основано на [расширении GraphQL webonyx](https://github.com/webonyx/graphql-php). Более подробная информация о GraphQL - [GraphQL Introduction](http://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html).
 
 
 ## Установка
@@ -8,6 +8,7 @@
 #### Зависимости:
 
 * [Базовое расширение GraphQL PHP](https://github.com/webonyx/graphql-php)
+* [Filsh/yii2-oauth2-server](https://github.com/Filsh/yii2-oauth2-server)
 
 
 **1-** Установка пакета через Composer. Добавьте следующий код в файл `composer.json`.
@@ -36,11 +37,18 @@ $ composer update
 **1-** Добавьте компонент в `config/main.php` file
 ```php
 'graphql' => [
-    class' => 'GraphQLYii\GraphQL',
+    'graphql' => require(__DIR__ . DIRECTORY_SEPARATOR . 'require' . DIRECTORY_SEPARATOR . 'graphql.php')
 ],
 ```
 
-**2-** Создайте action Controller для обработки пользовательского запроса
+**2-** Переместите config `./src/config/require` в `common/config/require`. Отредактируйте конфигурацию согласно вашему окружению. Файлы объектов `Queries`, `Mutations`, `Types` будут автоматически подгружены из директории `app\modules\graphql` 
+```php
+'graphql' => [
+    'graphql' => require(__DIR__ . DIRECTORY_SEPARATOR . 'require' . DIRECTORY_SEPARATOR . 'graphql.php')
+],
+```
+
+**3-** Создайте новый action для обработки пользовательского запроса
 
 ```php
 public function actionIndex(){
@@ -75,9 +83,9 @@ public function actionIndex(){
 }
 ```
 
-**3-** В качестве авторизации используется oAuth2 сервер [Filsh/yii2-oauth2-server](https://github.com/Filsh/yii2-oauth2-server)
+**4-** В качестве авторизации используется oAuth2 сервер [Filsh/yii2-oauth2-server](https://github.com/Filsh/yii2-oauth2-server)
 
-**4-** Добавьте поведение в Controller
+**5-** Добавьте поведение в Controller
 
 ```php
 public function behaviors()
