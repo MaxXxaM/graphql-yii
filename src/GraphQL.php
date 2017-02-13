@@ -40,6 +40,8 @@ class GraphQL extends Component
     protected $queries = [];
     protected $mutations = [];
 
+    private $queryInstance;
+    private $mutationInstance;
 
     public function schema($schema = null)
     {
@@ -71,17 +73,17 @@ class GraphQL extends Component
             $types[] = $this->type($name);
         }
 
-        $query = $this->objectType($this->queries, [
+        $this->queryInstance = $this->objectType($this->queries, [
             'name' => 'Query'
         ]);
-        
-        $mutation = $this->objectType($this->mutations, [
+
+        $this->mutationInstance = $this->objectType($this->mutations, [
             'name' => 'Mutation'
         ]);
-        
+
         return new Schema([
-            'query' => $query,
-            'mutation' => $mutation,
+            'query' => $this->queryInstance,
+            'mutation' => $this->mutationInstance,
             'types' => $types
         ]);
     }
@@ -132,6 +134,24 @@ class GraphQL extends Component
         $this->typesInstances[$name] = $type;
         
         return $type;
+    }
+
+    /**
+     * Uses if Query is field of anyone types
+     * @param $name
+     * @param bool $fresh
+     * @return array
+     */
+    public function queryAsField($name)
+    {
+        if (!empty($this->queryInstance)) {
+            $queryInstance = $this->queryInstance->getField($name);
+            return [
+                'type' => $queryInstance->getType(),
+                'args' => $queryInstance->config['args'],
+                'resolve' => $queryInstance->resolveFn
+            ];
+        }
     }
     
     public function objectType($type, $opts = [])
