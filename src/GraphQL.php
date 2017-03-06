@@ -313,21 +313,35 @@ class GraphQL extends Component
     public static function formatError(Error $e)
     {
         $error = [
-            'message' => $e->getMessage()
+            'message' => $e->getMessage(),
+            'statusCode' => $e->getPrevious()->getCode()
         ];
-        
+
         $locations = $e->getLocations();
         if (!empty($locations)) {
             $error['locations'] = array_map(function ($loc) {
                 return $loc->toArray();
             }, $locations);
         }
-        
+
         $previous = $e->getPrevious();
+        $error['statusCode'] = $previous->statusCode;
+
+        $stackTrace = $e->getTrace();
+
+        $error['file'] = $previous->getFile();
+        $error['line'] = $previous->getLine();
+
+        foreach ($stackTrace as $key => $item){
+            $error['trace'][]['file'] = isset($item['file']) ? $item['file'] : '';
+            $error['trace'][]['line'] = isset($item['line']) ? $item['line'] : '';
+            $error['trace'][]['function'] = isset($item['function']) ? $item['function'] : '';
+        }
+
         if ($previous && $previous instanceof ValidationError) {
             $error['validation'] = $previous->getValidatorMessages();
         }
-        
+
         return $error;
     }
 }
