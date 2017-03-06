@@ -325,12 +325,13 @@ class GraphQL extends Component
         }
 
         $previous = $e->getPrevious();
-        $error['statusCode'] = $previous->statusCode;
-
-        $stackTrace = $e->getTrace();
-
+        if (!empty($previous->statusCode)) {
+            $error['statusCode'] = $previous->statusCode;
+        }
         $error['file'] = $previous->getFile();
         $error['line'] = $previous->getLine();
+
+        $stackTrace = $e->getTrace();
 
         foreach ($stackTrace as $key => $item){
             $error['trace'][]['file'] = isset($item['file']) ? $item['file'] : '';
