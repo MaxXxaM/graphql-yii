@@ -328,15 +328,18 @@ class GraphQL extends Component
         if (!empty($previous->statusCode)) {
             $error['statusCode'] = $previous->statusCode;
         }
+
+        $previous = $e->getPrevious();
         $error['file'] = $previous->getFile();
         $error['line'] = $previous->getLine();
 
         $stackTrace = $e->getTrace();
-
         foreach ($stackTrace as $key => $item){
-            $error['trace'][]['file'] = isset($item['file']) ? $item['file'] : '';
-            $error['trace'][]['line'] = isset($item['line']) ? $item['line'] : '';
-            $error['trace'][]['function'] = isset($item['function']) ? $item['function'] : '';
+            $newItem = [];
+            $newItem['file'] = isset($item['file']) ? $item['file'] : '';
+            $newItem['line'] = isset($item['line']) ? $item['line'] : '';
+            $newItem['function'] = isset($item['function']) ? $item['function'] : '';
+            $error['trace'][] = $newItem;
         }
 
         if ($previous && $previous instanceof ValidationError) {
