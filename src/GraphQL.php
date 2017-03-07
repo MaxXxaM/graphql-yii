@@ -313,8 +313,7 @@ class GraphQL extends Component
     public static function formatError(Error $e)
     {
         $error = [
-            'message' => $e->getMessage(),
-            'statusCode' => $e->getPrevious()->getCode()
+            'message' => $e->getMessage()
         ];
 
         $locations = $e->getLocations();
