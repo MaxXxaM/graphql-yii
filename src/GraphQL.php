@@ -287,7 +287,7 @@ class GraphQL extends Component
                 try {
                     $field = new $field;
                 } catch (\Error $e){
-                    break;
+                    continue;
                 }
                 $name = is_numeric($name) ? $field->name:$name;
                 $field->name = $name;
