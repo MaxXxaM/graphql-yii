@@ -284,7 +284,11 @@ class GraphQL extends Component
         $typeFields = [];
         foreach ($fields as $name => $field) {
             if (is_string($field)) {
-                $field = new $field;
+                try {
+                    $field = new $field;
+                } catch (\Error $e){
+                    break;
+                }
                 $name = is_numeric($name) ? $field->name:$name;
                 $field->name = $name;
                 $field = $field->toArray();
