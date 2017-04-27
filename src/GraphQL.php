@@ -4,7 +4,6 @@ use GraphQL\GraphQL as GraphQLBase;
 use GraphQL\Schema;
 use GraphQL\Error;
 
-use GraphQLYii\Support\InputObjectType;
 use GraphQL\Type\Definition\ObjectType;
 
 use GraphQLYii\Error\ValidationError;
@@ -12,8 +11,6 @@ use GraphQLYii\Error\ValidationError;
 use GraphQLYii\Exception\TypeNotFound;
 use GraphQLYii\Exception\SchemaNotFound;
 
-use GraphQLYii\Events\SchemaAdded;
-use GraphQLYii\Events\TypeAdded;
 use yii\base\Component;
 
 class GraphQL extends Component
