@@ -190,6 +190,7 @@ class GraphQL extends Component
                 'data' => $result->data
             ];
         }
+
     }
     
     public function queryAndReturnResult($query, $params = [], $opts = [])
