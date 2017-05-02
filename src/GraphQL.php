@@ -2,12 +2,8 @@
 
 use GraphQL\GraphQL as GraphQLBase;
 use GraphQL\Schema;
-use GraphQL\Error;
-
 use GraphQL\Type\Definition\ObjectType;
-
 use GraphQLYii\Error\ValidationError;
-
 use GraphQLYii\Exception\TypeNotFound;
 use GraphQLYii\Exception\SchemaNotFound;
 
@@ -48,7 +44,6 @@ class GraphQL extends Component
         
         $this->clearTypeInstances();
 
-        /** Если передана готовая схема подгружаем ее */
         if (!empty($this->schema)){
             try{
                 $schema = new $this->schema;
@@ -58,13 +53,12 @@ class GraphQL extends Component
             }
         }
 
+        /** Collect objects from config and files directory */
+        $this->types = array_unique( array_merge($this->types, $this->getListFiles($this->graphqlDir, $this->typesPath)) );
+        $this->queries = array_unique( array_merge($this->queries, $this->getListFiles($this->graphqlDir, $this->queriesPath)) );
+        $this->mutations = array_unique( array_merge($this->mutations, $this->getListFiles($this->graphqlDir, $this->mutationsPath)) );
 
-        /** Собираем объекты из конфиг и из директорий */
-        $this->types = array_unique( array_merge($this->types, $this->getListFiles($this->graphqlDir, $this->typesPath) ));
-        $this->queries = array_unique( array_merge($this->queries, $this->getListFiles($this->graphqlDir, $this->queriesPath) ));
-        $this->mutations = array_unique( array_merge($this->mutations, $this->getListFiles($this->graphqlDir, $this->mutationsPath) ));
-
-        /** Собираем все типы */
+        /** Collect all types */
         $types = [];
         foreach ($this->types as $name => $type) {
             $types[] = $this->type($name);
@@ -185,11 +179,11 @@ class GraphQL extends Component
                 'data' => $result->data,
                 'errors' => array_map([$this, 'formatError'], $result->errors)
             ];
-        } else {
-            return [
-                'data' => $result->data
-            ];
         }
+
+        return [
+            'data' => $result->data
+        ];
 
     }
     
@@ -312,7 +306,7 @@ class GraphQL extends Component
         return $type->name;
     }
     
-    public static function formatError(Error $e)
+    public static function formatError($e)
     {
         $error = [
             'message' => $e->getMessage()
