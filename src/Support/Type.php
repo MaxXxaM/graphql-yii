@@ -6,6 +6,7 @@ use Illuminate\Support\Fluent;
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\InputObjectType;
+use GraphQL\Type\Definition\CustomScalarType;
 use GraphQL\Type\Definition\InterfaceType;
 
 class Type extends Fluent
@@ -13,6 +14,7 @@ class Type extends Fluent
     protected static $instances = [];
     
     protected $inputObject = false;
+    protected $scalarType = false;
     
     public function attributes()
     {
@@ -34,14 +36,16 @@ class Type extends Fluent
         $resolveMethod = 'resolve'.studly_case($name).'Field';
         if (isset($field['resolve'])) {
             return $field['resolve'];
-        } elseif (method_exists($this, $resolveMethod)) {
+        }
+
+        if (method_exists($this, $resolveMethod)) {
             $resolver = array($this, $resolveMethod);
             return function () use ($resolver) {
                 $args = func_get_args();
                 return call_user_func_array($resolver, $args);
             };
         }
-        
+
         return null;
     }
     
@@ -104,6 +108,11 @@ class Type extends Fluent
         if ($this->inputObject) {
             return new InputObjectType($this->toArray());
         }
+
+        if ($this->scalarType) {
+            return new CustomScalarType($this->toArray());
+        }
+
         return new ObjectType($this->toArray());
     }
 
