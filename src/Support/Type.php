@@ -7,6 +7,7 @@ use Illuminate\Support\Fluent;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\InputObjectType;
 use GraphQL\Type\Definition\CustomScalarType;
+use GraphQL\Type\Definition\EnumType;
 use GraphQL\Type\Definition\InterfaceType;
 
 class Type extends Fluent
@@ -15,6 +16,7 @@ class Type extends Fluent
     
     protected $inputObject = false;
     protected $scalarType = false;
+    protected $enumType = false;
     
     public function attributes()
     {
@@ -111,6 +113,10 @@ class Type extends Fluent
 
         if ($this->scalarType) {
             return new CustomScalarType($this->toArray());
+        }
+
+        if ($this->enumType) {
+            return new EnumType($this->toArray());
         }
 
         return new ObjectType($this->toArray());
