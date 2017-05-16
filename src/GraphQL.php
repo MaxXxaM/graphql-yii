@@ -61,7 +61,10 @@ class GraphQL extends Component
         /** Collect all types */
         $types = [];
         foreach ($this->types as $name => $type) {
-            $types[] = $this->type($name);
+            $newType = $this->type($name);
+            if ($newType) {
+                $types[] = $newType;
+            }
         }
 
         $this->queryInstance = $this->objectType($this->queries, [
@@ -119,10 +122,14 @@ class GraphQL extends Component
         }
         
         $class = $this->types[$name];
+
         $type = $this->objectType($class, [
             'name' => $name
         ]);
-        $this->typesInstances[$name] = $type;
+
+        if ($type) {
+            $this->typesInstances[$name] = $type;
+        }
         
         return $type;
     }
@@ -261,7 +268,11 @@ class GraphQL extends Component
     protected function buildObjectTypeFromClass($type, $opts = [])
     {
         if (!is_object($type)) {
-            $type = new $type($opts);
+            try {
+                $type = new $type($opts);
+            } catch (\Error $e){
+                return false;
+            }
         }
         
         foreach ($opts as $key => $value) {
