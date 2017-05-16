@@ -11,8 +11,6 @@ use yii\base\Component;
 
 class GraphQL extends Component
 {
-    protected $app;
-    
 
     protected $typesInstances = [];
 
@@ -35,6 +33,12 @@ class GraphQL extends Component
 
     private $queryInstance;
     private $mutationInstance;
+
+    public function __construct(array $config = [])
+    {
+        parent::__construct($config);
+    }
+
 
     public function schema($schema = null)
     {
@@ -114,7 +118,7 @@ class GraphQL extends Component
     public function type($name, $fresh = false)
     {
         if (!isset($this->types[$name])) {
-            throw new TypeNotFound('Type '.$name.' not found.');
+            throw new TypeNotFound('Type '. $name.' not found.');
         }
         
         if (!$fresh && isset($this->typesInstances[$name])) {
@@ -270,6 +274,7 @@ class GraphQL extends Component
         if (!is_object($type)) {
             try {
                 $type = new $type($opts);
+                $type->setAppInstance($this);
             } catch (\Error $e){
                 return false;
             }
@@ -289,6 +294,7 @@ class GraphQL extends Component
             if (is_string($field)) {
                 try {
                     $field = new $field;
+                    $field->setAppInstance($this);
                 } catch (\Error $e){
                     continue;
                 }

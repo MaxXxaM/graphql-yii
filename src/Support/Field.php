@@ -2,11 +2,14 @@
 
 namespace GraphQLYii\Support;
 
+use GraphQLYii\GraphQL;
 use Illuminate\Support\Fluent;
 
 class Field extends Fluent
 {
-    
+    /** @var GraphQL */
+    protected $appInstance;
+
     public function attributes()
     {
         return [];
@@ -20,6 +23,10 @@ class Field extends Fluent
     public function args()
     {
         return [];
+    }
+
+    public function setAppInstance($instance){
+        $this->appInstance = $instance;
     }
     
     protected function getResolver()

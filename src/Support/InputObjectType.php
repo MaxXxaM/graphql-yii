@@ -7,9 +7,16 @@ use GraphQL\Type\Definition\InputObjectType as GQObject;
 class InputObjectType extends GQObject
 {
 
+    /** @var GraphQL */
+    protected $appInstance;
+
     protected static $instances = [];
 
     protected $inputObject = false;
+
+    public function setAppInstance($instance){
+        $this->appInstance = $instance;
+    }
 
     public function attributes()
     {

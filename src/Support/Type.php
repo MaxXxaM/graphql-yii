@@ -2,6 +2,7 @@
 
 namespace GraphQLYii\Support;
 
+use GraphQLYii\GraphQL;
 use Illuminate\Support\Fluent;
 
 use GraphQL\Type\Definition\ObjectType;
@@ -12,11 +13,18 @@ use GraphQL\Type\Definition\InterfaceType;
 
 class Type extends Fluent
 {
+    /** @var GraphQL */
+    protected $appInstance;
+
     protected static $instances = [];
     
     protected $inputObject = false;
     protected $scalarType = false;
     protected $enumType = false;
+
+    public function setAppInstance($instance){
+        $this->appInstance = $instance;
+    }
     
     public function attributes()
     {
