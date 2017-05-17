@@ -7,6 +7,7 @@ use GraphQLYii\Error\ValidationError;
 use GraphQLYii\Exception\TypeNotFound;
 use GraphQLYii\Exception\SchemaNotFound;
 
+use GraphQLYii\Support\Instance;
 use yii\base\Component;
 
 class GraphQL extends Component
@@ -36,6 +37,7 @@ class GraphQL extends Component
 
     public function __construct(array $config = [])
     {
+        Instance::setAppInstance($this);
         parent::__construct($config);
     }
 
@@ -274,7 +276,6 @@ class GraphQL extends Component
         if (!is_object($type)) {
             try {
                 $type = new $type($opts);
-                $type->setAppInstance($this);
             } catch (\Error $e){
                 return false;
             }
@@ -294,7 +295,6 @@ class GraphQL extends Component
             if (is_string($field)) {
                 try {
                     $field = new $field;
-                    $field->setAppInstance($this);
                 } catch (\Error $e){
                     continue;
                 }

@@ -9,7 +9,6 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\InputObjectType;
 use GraphQL\Type\Definition\CustomScalarType;
 use GraphQL\Type\Definition\EnumType;
-use GraphQL\Type\Definition\InterfaceType;
 
 class Type extends Fluent
 {
@@ -22,10 +21,12 @@ class Type extends Fluent
     protected $scalarType = false;
     protected $enumType = false;
 
-    public function setAppInstance($instance){
-        $this->appInstance = $instance;
+    public function __construct($attributes = [])
+    {
+        $this->appInstance = Instance::getAppInstance();
+        parent::__construct($attributes);
     }
-    
+
     public function attributes()
     {
         return [];
@@ -39,6 +40,15 @@ class Type extends Fluent
     public function interfaces()
     {
         return [];
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function type(){
+        $array = explode('\\', static::class);
+        $className = $array[count($array) - 1];
+        return Instance::getAppInstance()->type($className);
     }
     
     protected function getFieldResolver($name, $field)

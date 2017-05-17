@@ -3,6 +3,7 @@
 namespace GraphQLYii\Support;
 
 use GraphQL\Type\Definition\InputObjectType as GQObject;
+use GraphQLYii\GraphQL;
 
 class InputObjectType extends GQObject
 {
@@ -14,8 +15,10 @@ class InputObjectType extends GQObject
 
     protected $inputObject = false;
 
-    public function setAppInstance($instance){
-        $this->appInstance = $instance;
+    public function __construct($attributes = [])
+    {
+        $this->appInstance = Instance::getAppInstance();
+        parent::__construct($attributes);
     }
 
     public function attributes()

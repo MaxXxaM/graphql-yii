@@ -10,6 +10,12 @@ class Field extends Fluent
     /** @var GraphQL */
     protected $appInstance;
 
+    public function __construct($attributes = [])
+    {
+        $this->appInstance = Instance::getAppInstance();
+        parent::__construct($attributes);
+    }
+
     public function attributes()
     {
         return [];
@@ -23,10 +29,6 @@ class Field extends Fluent
     public function args()
     {
         return [];
-    }
-
-    public function setAppInstance($instance){
-        $this->appInstance = $instance;
     }
     
     protected function getResolver()
