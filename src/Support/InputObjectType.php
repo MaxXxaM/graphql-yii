@@ -21,6 +21,15 @@ class InputObjectType extends GQObject
         parent::__construct($attributes);
     }
 
+    /**
+     * @return mixed
+     */
+    public static function type(){
+        $array = explode('\\', static::class);
+        $className = $array[count($array) - 1];
+        return Instance::getAppInstance()->type($className);
+    }
+
     public function attributes()
     {
         return [];
