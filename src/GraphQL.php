@@ -105,7 +105,7 @@ class GraphQL extends Component
                     $fileName = $path . '/' . $cvFile;
                     if (is_file($fileName)) {
                         if (preg_match('/(.*)\.php/', $cvFile, $matches)) {
-                            $files[str_replace(['Query', 'Mutation'], '', $matches[1])] = $this->namespace . $subNamespace . '\\' . $matches[1];
+                            $files[$matches[1]] = $this->namespace . $subNamespace . '\\' . $matches[1];
                         }
                     } elseif (!in_array($cvFile, ['.', '..'], true) && is_dir($fileName)) {
                         $files = array_merge($files, $this->getListFiles($basepath, $subPath . '/' . $cvFile));
