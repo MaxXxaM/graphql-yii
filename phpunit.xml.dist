@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true"
+         backupGlobals="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+    </php>
+
+    <testsuite name="Main Test Suite">
+        <directory suffix="Test.php">tests</directory>
+        <exclude>./tests/old</exclude>
+    </testsuite>
+
+    <filter>
+        <blacklist>
+            <directory suffix=".php">./tests/old</directory>
+        </blacklist>
+        <whitelist>
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="./report" title="phpDox" charset="UTF-8" highlight="true" lowUpperBound="60" highLowerBound="90"/>
+    </logging>
+
+</phpunit>

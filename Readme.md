@@ -1,17 +1,17 @@
-# Yii2 GraphQL
+# GraphQL Yii2
 
-Данное расширение позволяет реализовать GraphQL API в Yii2. Расширение основано на [расширении GraphQL webonyx](https://github.com/webonyx/graphql-php). Более подробная информация о GraphQL - [GraphQL Introduction](http://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html).
-
-
-## Установка
-
-#### Зависимости:
-
-* [Базовое расширение GraphQL PHP](https://github.com/webonyx/graphql-php)
-* [Filsh/yii2-oauth2-server](https://github.com/Filsh/yii2-oauth2-server)
+This extension allows you to implement GraphQL API in Yii2. This extension based on [extension GraphQL webonyx](https://github.com/webonyx/graphql-php). More information about GraphQL - [GraphQL Introduction](http://facebook.github.io/react/blog/2015/05/01/graphql-introduction.html).
 
 
-**1-** Установка пакета через Composer. Добавьте следующий код в файл `composer.json`.
+## Install
+
+#### Dependency:
+
+* [webonyx/graphql-php](https://github.com/webonyx/graphql-php)
+* [filsh/yii2-oauth2-server](https://github.com/Filsh/yii2-oauth2-server)
+
+
+**1** Install by Composer. Add this config into `composer.json`.
 ```json
 {
 	"require": {
@@ -20,21 +20,21 @@
 }
 ```
 
-**2-** Запустите установку пакетов Composer
+**2-** Start composer to install new dependency
 
 ```bash
 $ composer install
 ```
 
-или обновите вместе с существующими пакетами
+or update it
 
 ```bash
 $ composer update
 ```
 
-### Yii2
+### Config Yii2
 
-**1-** Добавьте компонент в `config/main.php` file
+**1-** Add component graphql into `config.php`
 ```php
 'graphql' => [
     'graphql' => require(__DIR__ . DIRECTORY_SEPARATOR . 'require' . DIRECTORY_SEPARATOR . 'graphql.php')

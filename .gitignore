@@ -1,4 +1,18 @@
-/vendor
 *.log
+
+.idea
+.env
+
+# composer vendor dir
+/vendor
+# composer itself is not needed
+composer.phar
+# composer lock file
 composer.lock
-/*_backup/
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+/report

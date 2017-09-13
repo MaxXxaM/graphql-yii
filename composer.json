@@ -1,9 +1,8 @@
 {
     "name": "maxxxam/graphql-yii",
     "type": "library",
-    "description": "GraphQL, yii2 lib",
-    "keywords": ["GraphQL","yii2"],
-    "homepage": "",
+    "description": "Extension implements GraphQL into Yii2",
+    "keywords": ["GraphQL", "yii2", "API"],
     "license": "MIT",
     "authors": [
         {
@@ -12,12 +11,12 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
-        "webonyx/graphql-php": "0.9.*"
+        "php": ">=7.0",
+        "yiisoft/yii2": "~2.0.5",
+        "webonyx/graphql-php": "0.10.*"
     },
     "require-dev": {
-
+        "phpunit/phpunit": "~6.3.0"
     },
     "autoload": {
         "psr-4": {
@@ -25,8 +24,14 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
+        "psr-4": {
+            "GraphQLYii\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "class": "GraphQLYii\\GraphQL"
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
